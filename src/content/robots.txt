@@ -1,0 +1,5 @@
+---
+index: false
+---
+User-agent: *
+Sitemap: ${ tacs.config.domain }${ tacs.root }sitemap.xml

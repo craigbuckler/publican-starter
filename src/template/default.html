@@ -1,0 +1,21 @@
+${ include('_partials/htmlhead.html') }
+${ include('_partials/header.html') }
+
+<main>
+
+  ${ include('_partials/title.html') }
+
+  <details class="pagecontents">
+    <summary>Contents</summary>
+    <nav-heading></nav-heading>
+  </details>
+
+  ${ data.content }
+
+  ${ include('_partials/schema.html') }
+
+</main>
+
+${ include('_partials/backnext.html') }
+
+${ include('_partials/htmlfoot.html') }

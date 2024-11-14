@@ -1,0 +1,7 @@
+${ (data?.postnext || data?.postback) && '<nav class="backnext"><ul>' }
+
+${ data?.postnext?.title && `<li><a href="${ data.postnext.link }">next: ${ data.postnext.title }</a></li>` }
+
+${ data?.postback?.title && `<li><a href="${ data.postback.link }">back: ${ data.postback.title }</a></li>` }
+
+${ (data?.postnext || data?.postback) && '</ul></nav>' }

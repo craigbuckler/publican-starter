@@ -1,0 +1,35 @@
+{
+  "name": "publican-starter",
+  "version": "1.0.0",
+  "description": "A starter site using the Publican static site generator.",
+  "type": "module",
+  "main": "publican.config.js",
+  "scripts": {
+    "build": "node --no-warnings --env-file=.env.dev --env-file=.env.prod ./publican.config.js",
+    "start": "node --no-warnings --env-file=.env.dev ./publican.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigbuckler/publican-starter"
+  },
+  "keywords": [
+    "starter",
+    "template",
+    "static",
+    "site",
+    "generator",
+    "ssg"
+  ],
+  "engines": {
+    "node": ">= 20.0.0"
+  },
+  "author": "Craig Buckler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/craigbuckler/publican-starter/issues"
+  },
+  "homepage": "https://github.com/craigbuckler/publican-starter#readme",
+  "dependencies": {
+    "esbuild": "0.24.0"
+  }
+}

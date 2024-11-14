@@ -1,0 +1,144 @@
+/* line numbers */
+body, h2, h3 {
+  counter-reset: lineNumber;
+}
+
+[style*="--linestart"] {
+	counter-set: lineNumber var(--linestart);
+}
+
+.line::before {
+  content: counter(lineNumber);
+  counter-increment: lineNumber;
+  width: 2em;
+  border-inline-end: 1px solid var(--color-code-border);
+  color: var(--color-code-line);
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  margin-inline-end: 1em;
+  padding-inline-end: 0.5em;
+  text-align: right;
+  user-select: none;
+}
+
+pre[class*="language-"],
+code {
+  font-family: var(--font-mono);
+	font-size: var(--fsize--1);
+	font-style: normal;
+	line-height: 1.2;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	tab-size: 2;
+	hyphens: none;
+	color: var(--color-code-fore);
+}
+
+/* code block */
+pre[class*="language-"] {
+	padding: 0.5em;
+	margin-block: 2rem;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"], .copycode {
+	background-color: var(--color-code-back);
+	border-radius: 0.4rem;
+}
+
+/* inline code */
+:not(pre) > code {
+	padding: 0.1em 0.3em;
+	background-color: var(--color-code-back);
+	border: 1px solid var(--color-code-border);
+	border-radius: .3em;
+	user-select: all;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: var(--color-code-comment);
+}
+
+.token.punctuation {
+	color: var(--color-code-punc);
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.keyword,
+.token.tag,
+.token.url {
+	color: var(--color-code-keyword);
+}
+
+.token.class-name,
+.token.entity {
+	color: var(--color-code-class);
+}
+
+.token.boolean,
+.token.constant {
+	color: var(--color-code-const);
+}
+
+.token.symbol,
+.token.deleted {
+	color: var(--color-code-symbol);
+}
+
+.token.number {
+	color: var(--color-code-number);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: var(--color-code-string);
+}
+
+.token.variable {
+	color: var(--color-code-var);
+}
+
+.token.operator {
+	color: var(--color-code-op);
+}
+
+.token.atrule,
+.token.attr-value {
+	color: var(--color-code-attr);
+}
+
+.token.function {
+	color: var(--color-code-function);
+}
+
+.token.regex {
+	color: var(--color-code-regex);
+}
+
+.token.important {
+	color: var(--color-code-important);
+}
+
+.token.important,
+.token.bold {
+	font-weight: var(--font-weight-bold);
+}
+
+.token.italic {
+	font-style: italic;
+}
