@@ -1,0 +1,135 @@
+body > header {
+
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-block: 0;
+  padding-inline: var(--layout-margin);
+  background-color: var(--color-back2);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  a:link, a:visited {
+    text-decoration: none;
+    color: var(--color-fore2);
+  }
+
+  a:hover, a:active, a:focus {
+    color: var(--color-hint1);
+  }
+
+}
+
+#logo a {
+  display: block;
+  line-height: var(--header-height);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.menu {
+
+  position: relative;
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul, li {
+    list-style-type: none;
+  }
+
+  li {
+    margin-inline: min(1em, 1vw);
+    white-space: nowrap;
+  }
+
+  > ul {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+  }
+
+  details > ul {
+    position: absolute;
+    top: 99%;
+    background-color: var(--color-back2);
+  }
+
+  summary::marker {
+    content: '';
+  }
+
+  summary::before {
+    display: inline-block;
+    font-size: 0.8em;
+    text-align: center;
+    vertical-align: baseline;
+    content: '\25b6';
+    width: 1.5rem;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-out;
+  }
+
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+
+  a, strong {
+    display: inline-block;
+    line-height: var(--header-height);
+  }
+
+  strong {
+    color: var(--color-fore2);
+  }
+
+  details ul {
+
+    box-shadow: 0 3px 3px rgba(0,0,0,0.5);
+
+    li {
+      margin: 0;
+    }
+
+    a, strong {
+      line-height: 2;
+      padding-inline: 1.5rem;
+    }
+  }
+
+}
+
+#themeswitcher {
+  height: auto;
+  align-self: center;
+  padding-inline: 0.3em;
+  border: 0 none;
+  background-color: var(--color-back2);
+}
+
+
+@media (height > 800px) {
+
+  body > header {
+    position: fixed;
+    top: 0;
+  }
+
+  main {
+    padding-top: var(--header-fix-height);
+  }
+
+  h1, h2, h3 {
+    scroll-margin-top: var(--header-fix-height);
+  }
+
+}

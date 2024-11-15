@@ -1,4 +1,0 @@
-main > * {
-  width: min(var(--layout-width), 100% - (2 * var(--layout-margin)));
-  margin-inline: auto;
-}

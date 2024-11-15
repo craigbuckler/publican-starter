@@ -16,8 +16,11 @@
   --fsize-4: clamp(2.3328rem, 2.1106rem + 0.9874vw, 2.8512rem);
   --fsize-5: clamp(2.7994rem, 2.5328rem + 1.1849vw, 3.4214rem);
 
-  --layout-width: 56rem;
+  --header-height: 4rem;
+  --layout-width: 55rem;
   --layout-margin: 2rem;
+  --main-width: min(var(--layout-width), 100% - (2 * var(--layout-margin)));
+  --header-fix-height: calc(var(--header-height) + var(--layout-margin));
 
   --color-fore1: light-dark(#353841, #c0c2c7);
   --color-fore2: light-dark(#151719, #fffff0);

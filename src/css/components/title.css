@@ -26,7 +26,6 @@ main header {
 
   font-size: var(--fsize--2);
   width: 100%;
-  margin-block-start: var(--fsize-5);
 
   ol, li, a {
     display: inline-block;
@@ -54,7 +53,8 @@ main header {
 
 .posttags {
 
-  font-size: var(--fsize--1);
+  font-size: var(--fsize--2);
+  margin-block-start: 0.5em;
 
   ul, li {
     padding: 0;
@@ -66,62 +66,22 @@ main header {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 0.2em 1em;
+    gap: 0.5em;
   }
 
-}
-
-.pagecontents {
-
-  margin-block: 1.5em;
-
-  summary {
-
-    font-weight: var(--font-weight-bold);
-    line-height: 1.5;
-    color: var(--color-fore2);
-
-    &::marker {
-      content: "";
-    }
-
-    &::before {
-      display: inline-block;
-      font-size: 0.8em;
-      text-align: center;
-      vertical-align: baseline;
-      content: '\25bc';
-      width: 1.5rem;
-      /* height: 1.5rem; */
-      /* background: no-repeat center url('../../media/icons/navright.svg'); */
-      color: var(--color-hint1);
-      transform: rotate(0deg);
-      transition: transform 0.3s ease-out;
-    }
-
-  }
-
-  &[open] summary::before {
-    transform: rotate(-540deg);
-  }
-
-}
-
-.contents {
-  font-size: var(--fsize--1);
-
-  ol, li {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  ol {
-    margin-inline-start: 1.5rem;
-  }
-
-  a {
+  a:link, a:visited {
+    line-height: 1;
     text-decoration: none;
+    padding-block: 0.2em;
+    padding-inline:0.6em;
+    border-radius: 1em;
+    color: var(--color-fore2);
+    background-color: var(--color-back2);
+  }
+
+  a:hover, a:active, a:focus {
+    color: var(--color-back2);
+    background-color: var(--color-fore3);
   }
 
 }

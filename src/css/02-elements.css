@@ -52,10 +52,6 @@ strong {
   font-weight: var(--font-weight-bold);
 }
 
-nav-heading {
-  display: block;
-}
-
 a:link, a:visited {
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -64,4 +60,9 @@ a:link, a:visited {
 
 a:hover, a:active, a:focus {
   color: var(--color-fore2);
+}
+
+main > * {
+  width: var(--main-width);
+  margin-inline: auto;
 }

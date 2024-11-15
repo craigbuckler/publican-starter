@@ -1,0 +1,66 @@
+/* <nav-heading> web component */
+.pagecontents {
+
+  display: block;
+  margin-block: 1.5em;
+
+  summary {
+
+    font-weight: var(--font-weight-bold);
+    line-height: 1.5;
+    color: var(--color-fore2);
+
+    &::marker {
+      content: '';
+    }
+
+    &::before {
+      display: inline-block;
+      font-size: 0.8em;
+      text-align: center;
+      vertical-align: baseline;
+      content: '\25bc';
+      width: 1.5rem;
+      color: var(--color-hint1);
+      transform: rotate(0deg);
+      transition: transform 0.3s ease-out;
+    }
+
+  }
+
+  details[open] summary::before {
+    transform: rotate(-540deg);
+  }
+
+  @media (width > 1500px) {
+
+    position: fixed;
+    width: auto;
+    top: var(--header-fix-height);
+    left: calc((100% - var(--main-width)) / 2 + var(--main-width) + var(--layout-margin));
+    margin-block: 0;
+
+  }
+
+}
+
+.contents {
+  font-size: var(--fsize--1);
+
+  ol, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ol {
+    margin-inline-start: 1.5rem;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    padding-block: 0.2em;
+  }
+
+}

@@ -12,8 +12,8 @@ index: false
   "start_url"					: "${ tacs.root }",
   "display"						: "minimal-ui",
   "orientation"       : "any",
-  "theme_color"				: "#151719",
-  "background_color"	: "#151719",
+  "theme_color"				: "${ tacs.config.themeColor }",
+  "background_color"	: "${ tacs.config.themeColor }",
   "icons": [
     { "src": "${ tacs.root }favicon192.png", "type": "image/png", "sizes": "192x192" },
     { "src": "${ tacs.root }favicon512.png", "type": "image/png", "sizes": "512x512" },

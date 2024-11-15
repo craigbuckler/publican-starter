@@ -1,7 +1,8 @@
 @import url('./00-reset.css') layer(reset);
 @import url('./01-variables.css');
 @import url('./02-elements.css');
-@import url('./03-layout.css');
 
+@import url('./components/header.css');
 @import url('./components/title.css');
 @import url('./components/code.css');
+@import url('./components/nav-heading.css');
