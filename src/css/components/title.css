@@ -28,25 +28,26 @@ main header {
   width: 100%;
 
   ol, li, a {
-    display: inline-block;
-    vertical-align: middle;
+    text-decoration: none;
     list-style-type: none;
     padding: 0;
     margin: 0;
   }
 
-  a {
-    text-decoration: none;
-    padding-inline: 0.5em;
-  }
-
-  li:first-child a {
-    padding-inline-start: 0;
+  ol {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   li::after {
+    display: inline;
     content: '\25b6';
     font-size: 0.6em;
+    padding-inline: 0.8em;
+    vertical-align: 10%;
   }
 
 }

@@ -1,7 +1,7 @@
 ${ (data?.postnext || data?.postback) && '<nav class="backnext"><ul>' }
 
-${ data?.postnext?.title && `<li><a href="${ data.postnext.link }">next: ${ data.postnext.title }</a></li>` }
+${ data?.postnext?.title && `<li class="next"><a href="${ data.postnext.link }"><span>next &rarr;</span> <strong>${ data.postnext.title }</strong></a></li>` }
 
-${ data?.postback?.title && `<li><a href="${ data.postback.link }">back: ${ data.postback.title }</a></li>` }
+${ data?.postback?.title && `<li class="back"><a href="${ data.postback.link }"><span>&larr; back</span> <strong>${ data.postback.title }</strong></a></li>` }
 
 ${ (data?.postnext || data?.postback) && '</ul></nav>' }

@@ -2,7 +2,6 @@
 .pagecontents {
 
   display: block;
-  margin-block: 1.5em;
 
   summary {
 
@@ -28,17 +27,27 @@
 
   }
 
+  a {
+    display: block;
+    text-decoration: none;
+    padding-block: 0.2em;
+  }
+
   details[open] summary::before {
     transform: rotate(-540deg);
   }
 
-  @media (width > 1500px) {
+  @media (width > 1500px) and (height > 900px) {
 
     position: fixed;
     width: auto;
     top: var(--header-fix-height);
     left: calc((100% - var(--main-width)) / 2 + var(--main-width) + var(--layout-margin));
     margin-block: 0;
+
+    main > & {
+      width: var(--layout-sidebar);
+    }
 
   }
 
@@ -55,12 +64,6 @@
 
   ol {
     margin-inline-start: 1.5rem;
-  }
-
-  a {
-    display: block;
-    text-decoration: none;
-    padding-block: 0.2em;
   }
 
 }

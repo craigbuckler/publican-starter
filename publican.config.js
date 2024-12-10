@@ -24,8 +24,23 @@ publican.config.defaultHTMLTemplate = process.env.TEMPLATE_DEFAULT;
 publican.config.dirPages.template = process.env.TEMPLATE_LIST;
 publican.config.tagPages.template = process.env.TEMPLATE_TAG;
 
+// slug replacement strings - removes NN_ from slug
+publican.config.slugReplace.set(/\d{2,}_/g, '');
+
+// pagination sizes
+publican.config.dirPages.size = 6;
+publican.config.dirPages.sortBy = 'filename';
+publican.config.dirPages.sortDir = 1;
+publican.config.tagPages.size = 6;
+
 // pass-through files
 publican.config.passThrough.add({ from: './src/media/favicons', to: './' });
+publican.config.passThrough.add({ from: './src/media/images', to: './images/' });
+
+// process-content hook: format custom [[ filename ]] tab references
+publican.config.processContent.add(
+  ( filename, data ) => data.content = data.content.replace(/<p>\[\[\s*(.+?)\s*\]\]<\/p>/gi, '<p class="filename"><dfn>$1</dfn></p>')
+);
 
 // post-render hook: add generator <meta>
 publican.config.processPostRender.add(
@@ -39,7 +54,6 @@ tacs.config.language = process.env.SITE_LANGUAGE;
 tacs.config.domain = process.env.SITE_DOMAIN;
 tacs.config.title = process.env.SITE_TITLE;
 tacs.config.description = process.env.SITE_DESCRIPTION;
-tacs.config.author = process.env.SITE_AUTHOR;
 tacs.config.wordCountShow = parseInt(process.env.SITE_WORDCOUNTSHOW) || 0;
 tacs.config.themeColor = process.env.SITE_THEMECOLOR || '#000';
 tacs.config.buildDate = new Date();
@@ -48,6 +62,12 @@ tacs.config.buildDate = new Date();
 tacs.fn = tacs.fn || {};
 tacs.fn.nav = fnNav;
 tacs.fn.format = fnFormat;
+
+// replacement strings
+publican.config.replace = new Map([
+  [ '--ROOT--', publican.config.root ],
+  [ '--COPYRIGHT--', `&copy;<time datetime="${ tacs.fn.format.dateYear() }">${ tacs.fn.format.dateYear() }</time>` ]
+]);
 
 // utils
 publican.config.minify = !isDev;  // minify in production mode

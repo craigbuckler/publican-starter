@@ -1,34 +1,19 @@
-${ data?.pagination?.page?.length && '<nav class="pagelist">' }
+${ data?.pagination?.page?.length && '<nav class="pagelist">' + data?.pagination?.page.map(p => `
 
-${ data?.pagination?.page.map(p => `
-  <article>
-    <a href="${ p.link }">
-      <h2>${ p.title }</h2>
-      <p>${ p.description }</p>
-      <p class="author">By ${ p.author || tacs.config.author }</p>
-      <p class="pubdate"><time datetime="${ tacs.fn.format.dateISO( p.date ) }">${ tacs.fn.format.dateHuman( p.date ) }</time></p>
+    <article>
+      <a href="${ p.link }">
+        <h2>${ p.title }</h2>
+        <p>${ p.description }</p>
+        ${ p.date ? `<p class="pubdate"><time datetime="${ tacs.fn.format.dateISO( p.date ) }">${ tacs.fn.format.dateHuman( p.date ) }</time></p>` : '' }
+        ${ p?.wordCount >= tacs.config.wordCountShow ?
+          `<p class="wordcount">${ tacs.fn.format.numberRound( p.wordCount ) } words, ${ tacs.fn.format.numberRound( Math.ceil( p.wordCount / 200 ) ) }-minute read</p>` :
+          ''
+        }
+      </a>
+    </article>
 
-      ${ p?.wordCount >= tacs.config.wordCountShow ?
-        `<p class="wordcount">${ tacs.fn.format.numberRound( p.wordCount ) } words, ${ tacs.fn.format.numberRound( Math.ceil( p.wordCount / 200 ) ) }-minute read</p>` :
-        ''
-      }
-
-    </a>
-  </article>
-`) }
-
-${ data?.pagination?.page?.length && '</nav>' }
-
-${ data?.pagination?.href?.length > 1 ? '<nav class="pagenav"><ol>' : '' }
-
-${ data?.pagination?.hrefBack ? `<li><a href="${ data.pagination.hrefBack }">back</a></li>` : '' }
-
-${
-  data?.pagination?.href?.length > 1 ?
-  data?.pagination?.href?.map((p, idx) => `<li><a href="${ p }">${ idx + 1 }</a></li>`) :
-  ''
+  `).join('') + '</nav>'
 }
 
-${ data?.pagination?.hrefNext && `<li><a href="${ data.pagination.hrefNext }">next</a></li>` }
 
-${ data?.pagination?.href.length > 1 ? '</ol></nav>' : '' }
+${ tacs.fn.nav.pagination( data.pagination ) }

@@ -5,7 +5,11 @@ ${ include('_partials/header.html') }
 
   ${ include('_partials/title.html') }
 
+  ${ data.link.startsWith('/docs/') ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'docs' ) }</nav>` : '' }
+
   <nav-heading title="Contents" class="pagecontents"></nav-heading>
+
+  ${ include('_partials/hero.html') }
 
   ${ data.content }
 

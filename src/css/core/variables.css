@@ -19,6 +19,9 @@
   --header-height: 4rem;
   --layout-width: 55rem;
   --layout-margin: 2rem;
+  --layout-sidebar: 12em;
+  --layout-list: 3;
+  --layout-list-width: calc( (var(--layout-width) - var(--layout-margin) * var(--layout-list)) / var(--layout-list) );
   --main-width: min(var(--layout-width), 100% - (2 * var(--layout-margin)));
   --header-fix-height: calc(var(--header-height) + var(--layout-margin));
 
@@ -26,11 +29,13 @@
   --color-fore2: light-dark(#151719, #fffff0);
   --color-fore3: light-dark(#014d8a, #bdc3ff);
 
-  --color-back1: light-dark(#fffff0, #151719);
+  --color-back1: light-dark(#fff, #151719);
   --color-back2: light-dark(#f2f4f6, #252729);
   --color-back3: light-dark(#cfe6fc, #171d4f);
 
   --color-hint1: light-dark(#0065da, #60a5fa);
+
+  --color-shadow: rgba(0,0,0,0.5);
 
   --color-code-fore: light-dark(#393a34, #c5c8c6);
   --color-code-back: light-dark(#f2f4f6, #1d1f21);
@@ -50,6 +55,8 @@
   --color-code-function: light-dark(#393a34, #dad085);
   --color-code-regex: light-dark(#f00, #e9c062);
   --color-code-important: light-dark(#e90, #fd971f);
+
+  --border-radius1: 5px;
 
 }
 

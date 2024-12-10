@@ -1,15 +1,16 @@
 <header>
 
-<p id="logo"><a href="${ tacs.root }">Starter</a></p>
+  <p id="logo"><a href="${ tacs.root }">Starter</a></p>
 
-<nav class="menu">
-${ tacs.fn.nav.menu( data.link ) }
-</nav>
+  <!-- TODO: omit ['docs'] - tacs.fn.nav.menuMain( data.link, ['docs'] ) -->
+  <nav class="menu">
+  ${ tacs.fn.nav.menuMain( data.link, ['docs'] ) }
+  </nav>
 
-<select id="themeswitcher">
-  <option value="">auto</option>
-  <option value="light">light</option>
-  <option value="dark">dark</option>
-</select>
+  <select id="themeswitcher">
+    <option value="">auto</option>
+    <option value="light">light</option>
+    <option value="dark">dark</option>
+  </select>
 
 </header>

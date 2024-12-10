@@ -1,10 +1,16 @@
 ---
-title: Why build another static site generator?
+title: Why create another static site generator?
 menu: false
 description: Why does Publican exist when there are so many great SSGs for all systems and languages?
+author: Craig Buckler
 tags: SSG, HTML, JavaScript
 priority: 1.0
-date: 2024-11-13
+date: 2024-12-02
+hero: images/code.jpg
+heroWidth: 1200
+heroHeight: 600
+heroAlt: code
+heroCaption: Image courtesy of <a href="https://unsplash.com/@altumcode">AltumCode</a>
 ---
 
 There are plenty of great [Static Site Generators (SSGs)](https://jamstack.org/generators/) for various language. I've used several over the past decade including [Jekyll](https://jekyllrb.com/), [Metalsmith](http://www.metalsmith.io/), and [Eleventy](https://11ty.dev/). *Why build another?*
@@ -44,12 +50,17 @@ Templating systems can be complicated:
 * Few templating systems are compatible with others.
 * Implementing advanced functionality can be tricky.
 
-Publican uses [jsTACS](https://www.npmjs.com/package/jstacs) which natively parses JavaScript `${ expressions }`{language=js}. Those expressions can include your own functions. You're just using JavaScript: there's nothing new to learn and it's faster than custom template compilers.
+Publican uses [jsTACS](https://www.npmjs.com/package/jstacs) which natively parses JavaScript `${ expressions }`{language=js}. Those expressions can include your own functions. *You're just using JavaScript*: there's nothing new to learn and it's faster than custom template compilers.
 
 
 ## Partial template rendering
 
-Publican can partially build templates for Express.js or similar systems. Parts of the page can be rendered at build time with `${ expression }`{language=js} but dynamic parts can be identified with `!{ expression }`{language=js}.
+Publican can partially build templates for [Express.js](https://expressjs.com/) or similar frameworks. You can render most of the page at build time but retain islands of runtime functionality.
+
+* `${ expression }`{language=js} statically renders content once at build time.
+* `!{ expression }`{language=js} identifies expressions to dynamically render at runtime.
+
+Runtime expressions can be processed using [jsTACS](https://www.npmjs.com/package/jstacs) as an Express.js rendering engine.
 
 
 ## Built-in menus, tags, and feeds

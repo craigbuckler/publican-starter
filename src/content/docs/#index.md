@@ -1,8 +1,8 @@
 ---
-title: Publican documentation
+title: Documentation
 menu: Docs
-description: Publican quick start.
+description: How to use the Publican starter template to quickly create a static website.
 priority: 1.0
 ---
 
-This section provides documentation for the Publican static site generator.
+This section provides starter template documentation so you can quickly create a new website using the Publican Static Site Generator.

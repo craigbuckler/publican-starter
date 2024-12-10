@@ -6,6 +6,7 @@
   "main": "publican.config.js",
   "scripts": {
     "build": "node --no-warnings --env-file=.env.dev --env-file=.env.prod ./publican.config.js",
+    "debug": "node --inspect=0.0.0.0:9229 --no-warnings --env-file=.env.dev ./publican.config.js",
     "start": "node --no-warnings --env-file=.env.dev ./publican.config.js"
   },
   "repository": {

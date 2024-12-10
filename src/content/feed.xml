@@ -20,7 +20,9 @@ ${ toArray(tacs.dir.get('post')).filter(p => p.index !== false).sort((a,b) => b.
 <pubDate>${ tacs.fn.format.dateUTC( p.date ) }</pubDate>
 <dc:creator>${ p.author || tacs.config.author }</dc:creator>
 <description>${ p.description }</description>
-<content:encoded><![CDATA[${ p.contentRendered.trim() }]]></content:encoded>
+<content:encoded><![CDATA[
+${ tacs.fn.format.rss( p.contentRendered ) }
+]]></content:encoded>
 </item>
 `)
 }
