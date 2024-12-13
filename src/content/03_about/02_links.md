@@ -2,8 +2,9 @@
 title: Publican project links
 menu: Links
 description: A list of useful links to Publican resources.
-tags: SSG
+date: 2024-12-10
 priority: 0.5
+tags: SSG, links
 ---
 
 Please refer to the following links for project details and resources.

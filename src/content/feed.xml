@@ -22,7 +22,7 @@ ${ toArray(tacs.dir.get('post')).filter(p => p.index !== false).sort((a,b) => b.
 <description>${ p.description }</description>
 <content:encoded><![CDATA[
 ${ tacs.fn.format.rss( p.contentRendered ) }
-]]></content:encoded>
+}}></content:encoded>
 </item>
 `)
 }

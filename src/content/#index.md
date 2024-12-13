@@ -20,7 +20,7 @@ Some inline `${ expression }`{language=js} JavaScript code.
 
 Code block with syntax highlighting&hellip;
 
-[[ `src/js/dev/css-reload.js`{language=bash} ]]
+{{ `src/js/dev/css-reload.js` }}
 
 ```js
 if (__ISDEV__) {

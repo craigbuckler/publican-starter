@@ -2,8 +2,9 @@
 title: Code licence and terms
 menu: Licence
 description: Licence for using and distributing this code and other assets.
-tags: SSG
+date: 2024-12-10
 priority: 0.5
+tags: SSG, licence
 ---
 
 This site starter template has been created to help you use the [Publican static site generator](https://www.npmjs.com/package/publican). You may use, adapt, and distribute the code as you wish without any restrictions.

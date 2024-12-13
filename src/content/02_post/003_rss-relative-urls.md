@@ -3,7 +3,7 @@ title: RSS feeds and relative URLs
 menu: false
 description: Most static site generators use relative links in page content, but can these be used in RSS feeds?
 author: Craig Buckler
-tags: SSG, HTML, RSS
+tags: SSG, HTML, RSS, feed
 priority: 1.0
 date: 2024-12-01
 hero: images/newspapers.jpg
@@ -34,21 +34,21 @@ Relative URLs make a rendered site portable. It should work anywhere irrespectiv
 
 Unfortunately, it's not possible to use relative URLs everywhere. Sitemap and `robots.txt` files require fully-qualified absolute URLs containing the domain name.
 
-[[ example `robots.txt`{language=bash} ]]
+{{ example `robots.txt` }}
 
 ```txt
 User-agent: *
 Sitemap: https://example.com/sitemap.xml
 ```
 
-[[ example `sitemap.txt`{language=bash} ]]
+{{ example `sitemap.txt` }}
 
 ```txt
 https://example.com/
 https://example.com/about/
 ```
 
-[[ example `sitemap.xml`{language=bash} ]]
+{{ example `sitemap.xml` }}
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

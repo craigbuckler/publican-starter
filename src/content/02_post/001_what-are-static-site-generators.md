@@ -3,7 +3,7 @@ title: What are Static Site Generators (SSGs)
 menu: false
 description: An overview of what Static Site Generators do, how they work, and how they benefit developers and users.
 author: Craig Buckler
-tags: SSG, HTML
+tags: SSG, HTML, overview
 priority: 1.0
 date: 2024-12-05
 hero: images/question.jpg

@@ -27,6 +27,9 @@ publican.config.tagPages.template = process.env.TEMPLATE_TAG;
 // slug replacement strings - removes NN_ from slug
 publican.config.slugReplace.set(/\d{2,}_/g, '');
 
+// default syntax language
+publican.config.markdownOptions.prism.defaultLanguage = 'bash';
+
 // pagination sizes
 publican.config.dirPages.size = 6;
 publican.config.dirPages.sortBy = 'filename';
@@ -37,9 +40,18 @@ publican.config.tagPages.size = 6;
 publican.config.passThrough.add({ from: './src/media/favicons', to: './' });
 publican.config.passThrough.add({ from: './src/media/images', to: './images/' });
 
-// process-content hook: format custom [[ filename ]] tab references
+// process-content hook: format custom {{ filename }} tab references
 publican.config.processContent.add(
-  ( filename, data ) => data.content = data.content.replace(/<p>\[\[\s*(.+?)\s*\]\]<\/p>/gi, '<p class="filename"><dfn>$1</dfn></p>')
+  ( filename, data ) => data.content = data.content.replace(/<p>\{\{\s*(.+?)\s*\}\}<\/p>/gi, '<p class="filename"><dfn>$1</dfn></p>')
+);
+
+// process-content hook: replace { aside|section|article } tags
+publican.config.processContent.add(
+  ( filename, data ) => data.content = data.content
+    .replace(/{\s*(\/{0,1}aside|section|article)\s*\}/gi, '<$1>')
+    .replace(/<p><(aside|section|article)><\/p>/gi, '<$1>')
+    .replace(/\n<(.+?)><(aside|section|article)>\s/gi, '\n<$2><$1>')
+    .replace(/\n<\/(aside|section|article)><\/(.+?)>\n/gi, '</$2></$1>\n')
 );
 
 // post-render hook: add generator <meta>
@@ -54,6 +66,7 @@ tacs.config.language = process.env.SITE_LANGUAGE;
 tacs.config.domain = process.env.SITE_DOMAIN;
 tacs.config.title = process.env.SITE_TITLE;
 tacs.config.description = process.env.SITE_DESCRIPTION;
+tacs.config.author = process.env.SITE_AUTHOR;
 tacs.config.wordCountShow = parseInt(process.env.SITE_WORDCOUNTSHOW) || 0;
 tacs.config.themeColor = process.env.SITE_THEMECOLOR || '#000';
 tacs.config.buildDate = new Date();
