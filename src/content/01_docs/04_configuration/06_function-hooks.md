@@ -8,3 +8,12 @@ priority: 0.9
 Function hooks.
 
 ## `processContent`
+
+
+## `processTemplate`
+
+
+## `processPreRender`
+
+
+## `processPostRender`

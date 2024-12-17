@@ -80,3 +80,48 @@ You can add further search string/regex and replacement values, e.g. rename all 
 // rename .html files to .htm
 publican.config.slugReplace.set('.html', '.htm');
 ```
+
+
+## Root server path
+
+By default, Publican assumes the build directory is the root path of your website. The page rendered to `build/index.html` is therefore the home page of the site.
+
+{{ `publican.config.js` }}
+```js
+// root path
+publican.config.root = '/';
+```
+
+However, you may want to build files to a sub-directory of your site, e.g. `/blog/`. Each post's [`data.link`](--ROOT--docs/templates/content-properties/#datalink) would then be incorrect.
+
+The site's root path can be set by changing the `config.root` value:
+
+{{ `publican.config.js` }}
+```js
+// root path
+publican.config.root = '/blog/';
+```
+
+Links to the home page would then become `/blog/` rather than `/`.
+
+You could set this option for the live production site but retain `/` in development:
+
+```js
+const isDev = (process.env.NODE_ENV === 'development');
+publican.config.root = isDev ? '/' : '/blog/';
+```
+
+All links, navigation, and pagination properties use the `root` as appropriate. If you want to link to a page in your content, you can use:
+
+```html
+<p><a href="${ tacs.root }post/article-one/">link to Article one</a></p>
+```
+
+The `${ tacs.root }`{language=js} value **cannot** be used in markdown because it confuses the parser:
+
+```md
+<!-- this will fail in markdown -->
+[link to Article one](${ tacs.root }post/article-one/)
+```
+
+The Starter template sets a <code>&ndash;&ndash;ROOT&ndash;&ndash;</code> [string replacement](--ROOT--docs/configuration/string-replacement/) value to the root which can be used in links, e.g. <code>(&ndash;&ndash;ROOT&ndash;&ndash;post/article-one/)</code>.

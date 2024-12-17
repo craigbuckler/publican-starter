@@ -1,7 +1,7 @@
 table {
 	font-size: 1em;
 	font-variant-numeric: tabular-nums;
-	table-layout: fixed;
+	table-layout: auto;
 	border-spacing: 0;
 	border-collapse: collapse;
 	empty-cells: show;
@@ -10,15 +10,18 @@ table {
 
 th, td {
   text-align: left;
-	vertical-align: middle;
+	vertical-align: top;
   padding-block: 0.4em;
   padding-inline: 0.6em;
   margin: 0;
   border: 0 none;
 
-  a {
+  a:only-child {
     display: block;
   }
+
+  &.center { text-align: center; }
+  &.right { text-align: right; }
 }
 
 thead {

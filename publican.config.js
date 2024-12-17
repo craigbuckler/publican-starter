@@ -79,7 +79,9 @@ tacs.fn.format = fnFormat;
 // replacement strings
 publican.config.replace = new Map([
   [ '--ROOT--', publican.config.root ],
-  [ '--COPYRIGHT--', `&copy;<time datetime="${ tacs.fn.format.dateYear() }">${ tacs.fn.format.dateYear() }</time>` ]
+  [ '--COPYRIGHT--', `&copy;<time datetime="${ tacs.fn.format.dateYear() }">${ tacs.fn.format.dateYear() }</time>` ],
+  [ ' style="text-align:right"', ' class="right"' ],
+  [ ' style="text-align:center"', ' class="center"' ]
 ]);
 
 // utils

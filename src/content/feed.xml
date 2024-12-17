@@ -12,7 +12,7 @@ index: false
 <lastBuildDate>${ tacs.fn.format.dateUTC( tacs.config.buildDate ) }</lastBuildDate>
 <sy:updatePeriod>daily</sy:updatePeriod>
 <sy:updateFrequency>1</sy:updateFrequency>
-${ toArray(tacs.dir.get('post')).filter(p => p.index !== false).sort((a,b) => b.date-a.date).slice(0,10).map(p => `
+${ tacs.dir.get('post').filter(p => p.index !== false).sort((a,b) => b.date-a.date).slice(0,10).map(p => `
 <item>
 <title>${ p.title }</title>
 <link>${ tacs.config.domain }${ p.link }</link>

@@ -56,12 +56,25 @@ ${ (toArray(tacs.all)).map(p => p.index !== false ? `${ tacs.config.domain }${ p
 
 The primary content follows the front matter. [Markdown](--ROOT--docs/content/markdown/) is converted to HTML during the build but all other file content is not changed (other than removing the front matter block).
 
-Any file can use `${ expression }` [template literals](--ROOT--docs/templates/template-literals/) to output page or global values.
+Any file can use `${ expression }`{language=js} [template literals](--ROOT--docs/templates/template-literals/) to output page or global values.
 
 
 ## Content file location
 
-Define your content files in `src/content/` unless you set an [alternative directory](--ROOT--docs/configuration/options/#directories).
+Define your content files in `src/content/` unless you set an [alternative directory](--ROOT--docs/configuration/options/#directories).  This Starter site specifies it as an environment variable:
+
+{{ `.env.dev` excerpt }}
+```bash
+# content files
+CONTENT_DIR=./src/content/
+```
+
+which is passed to Publican:
+
+{{ `publican.config.js` excerpt }}
+```js
+publican.config.dir.content = process.env.CONTENT_DIR;
+```
 
 
 ## Directory structure
@@ -139,12 +152,12 @@ The initial `NN_` is removed from the slug using custom [slug string replacement
 
 ## Virtual content files
 
-Content can be passed to Publican as a string in the [configuration file](--ROOT--docs/configuration/file/). This may be useful if you are retrieving data from a Content Management System rather than usinng on the file system.
+Content can be passed to Publican as a string in the [configuration file](--ROOT--docs/configuration/file/). This may be useful if you are retrieving data from a Content Management System rather than using the file system.
 
 To add virtual content, call:
 
 ```js
-publican.addContent( <filename>, <value> );
+publican.addContent( <filename>, <content> );
 ```
 
 prior to running the build process with `await publican.build();`{language=js}.

@@ -103,7 +103,7 @@ template: post-template.html
 
 ### `index`{language=js}
 
-The search engine indexing frequency, as used in sitemaps and feeds. Typical values are `daily`, `weekly`, `monthly`, or `yearly`. Set it `false` if you want to omit a page from sitemaps.
+The search engine indexing frequency, as used in sitemaps and feeds. Typical values are `daily`, `weekly`, `monthly`, or `yearly`. Set it `false` if you want to omit a page from navigation lists and sitemaps.
 
 ```js
 index: weekly
