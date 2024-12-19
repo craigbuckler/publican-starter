@@ -2,6 +2,7 @@
 import { Publican, tacs } from 'publican';
 import * as fnNav from './lib/nav.js';
 import * as fnFormat from './lib/format.js';
+import * as fnHooks from './lib/hooks.js';
 import esbuild from 'esbuild';
 
 const
@@ -34,30 +35,26 @@ publican.config.markdownOptions.prism.defaultLanguage = 'bash';
 publican.config.dirPages.size = 6;
 publican.config.dirPages.sortBy = 'filename';
 publican.config.dirPages.sortDir = 1;
-publican.config.tagPages.size = 6;
+publican.config.tagPages.size = 12;
 
 // pass-through files
 publican.config.passThrough.add({ from: './src/media/favicons', to: './' });
 publican.config.passThrough.add({ from: './src/media/images', to: './images/' });
 
-// process-content hook: format custom {{ filename }} tab references
-publican.config.processContent.add(
-  ( filename, data ) => data.content = data.content.replace(/<p>\{\{\s*(.+?)\s*\}\}<\/p>/gi, '<p class="filename"><dfn>$1</dfn></p>')
-);
+// processContent hook: custom {{ filename }} code tabs
+publican.config.processContent.add( fnHooks.contentFilename );
 
-// process-content hook: replace { aside|section|article } tags
-publican.config.processContent.add(
-  ( filename, data ) => data.content = data.content
-    .replace(/{\s*(\/{0,1}aside|section|article)\s*\}/gi, '<$1>')
-    .replace(/<p><(aside|section|article)><\/p>/gi, '<$1>')
-    .replace(/\n<(.+?)><(aside|section|article)>\s/gi, '\n<$2><$1>')
-    .replace(/\n<\/(aside|section|article)><\/(.+?)>\n/gi, '</$2></$1>\n')
-);
+// processContent hook: replace { aside|section|article } tags
+publican.config.processContent.add( fnHooks.contentSections );
 
-// post-render hook: add generator <meta>
-publican.config.processPostRender.add(
-  ( data, output ) => output.replace('</head>', '<meta name="generator" content="Publican" />\n</head>')
-);
+// processRenderStart hook: create tacs.tagScore Map
+publican.config.processRenderStart.add( fnHooks.renderstartTagScore );
+
+// processPreRender hook: determine related posts
+publican.config.processPreRender.add( fnHooks.prerenderRelated );
+
+// processPostRender hook: add <meta> tags
+publican.config.processPostRender.add( fnHooks.postrenderMeta );
 
 // jsTACs rendering defaults
 tacs.config = tacs.config || {};

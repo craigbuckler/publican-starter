@@ -36,7 +36,7 @@ li {
   margin-block: 1em 0;
   margin-inline: 2em;
 
-  p {
+  p:first-child {
     margin-block-start: 0;
   }
 }
@@ -126,11 +126,15 @@ a.headlink {
 
 }
 
-main, nav.backnext {
+main, .backnext, .related {
 
   & > * {
     width: var(--main-width);
     margin-inline: auto;
   }
 
+}
+
+.related h2 {
+  margin-block-start: 6rem;
 }

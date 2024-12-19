@@ -9,6 +9,7 @@ tags: content, markdown
 
 Publican supports markdown for content. It's a simple format which can be transformed to clean HTML. Example:
 
+{{ example }}
 ```md
 # H1 heading
 

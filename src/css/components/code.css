@@ -32,9 +32,68 @@ body, h2, h3 {
 		font-style: normal;
 		background-color: var(--color-code-back);
 		padding-block: 0.3em 0.5em;
-		padding-inline: 1em;
+		padding-inline: 0 2em;
 		border-block-start: 2px solid var(--color-hint1);
 		border-radius: 3px 3px 0 0;
+
+		&::before {
+			display: inline-block;
+			content: '';
+			width: 1.4em;
+			height: 1em;
+			vertical-align: middle;
+			margin-inline: 0.3em;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+
+	&.language-html dfn {
+		border-color: #e44d26;
+
+		&::before {
+			background-image: url(../../media/icons/html.svg);
+		}
+	}
+
+	&.language-css dfn {
+		border-color: #639;
+
+		&::before {
+			background-image: url(../../media/icons/css.svg);
+		}
+	}
+
+	&.language-js dfn {
+		border-color: #f7df1e;
+
+		&::before {
+			background-image: url(../../media/icons/js.svg);
+		}
+	}
+
+	&.language-json dfn {
+		border-color: #ea2039;
+
+		&::before {
+			background-image: url(../../media/icons/json.svg);
+		}
+	}
+
+	&.language-md dfn {
+		border-color: #777;
+
+		&::before {
+			background-image: url(../../media/icons/md.svg);
+		}
+	}
+
+	&.language-bash dfn {
+		border-color: #777;
+
+		&::before {
+			background-image: url(../../media/icons/bash.svg);
+		}
 	}
 
 	code {

@@ -13,7 +13,13 @@ Function hooks.
 ## `processTemplate`
 
 
+## `processRenderStart`
+
+
 ## `processPreRender`
 
 
 ## `processPostRender`
+
+
+## `processRenderComplete`

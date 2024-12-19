@@ -13,13 +13,15 @@ This project's files are available at [github.com/craigbuckler/publican-starter]
 
 This documentation presumes the project directory is `publican-starter`, your terminal is open, and you have navigated to the root:
 
-```
+{{ `terminal` }}
+```bash
 cd publican-starter
 ```
 
 Install dependencies with:
 
-```
+{{ `terminal` }}
+```bash
 npm i
 ```
 

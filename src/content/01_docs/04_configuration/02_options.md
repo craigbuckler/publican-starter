@@ -51,7 +51,7 @@ publican.config.ignoreContentFile = `/^\..*$/`;
 
 The starter site template orders files by filename rather than priority or date in menus and pagination. Directories and files have an initial number followed by an underscore, e.g.
 
-```
+```bash
 docs/
 
   01_quickstart/

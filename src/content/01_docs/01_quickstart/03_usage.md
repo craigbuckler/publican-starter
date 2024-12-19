@@ -14,7 +14,8 @@ The starter project can be started in development or production mode according t
 
 Start a development build and live server with:
 
-```
+{{ `terminal` }}
+```bash
 npm start
 ```
 
@@ -31,7 +32,8 @@ The site content, CSS, and JavaScript files are updated when any are changed. No
 
 Create a production build with:
 
-```
+{{ `terminal` }}
+```bash
 npm build
 ```
 
@@ -45,7 +47,7 @@ The starter template uses environment variables to configure values in the Publi
 Development values are defined in `.env.dev`:
 
 {{ .env.dev (example) }}
-```
+```bash
 # build mode
 NODE_ENV=development
 
@@ -70,7 +72,7 @@ The file is passed to Publican in the npm development mode `"start"`{language=js
 Production values are defined in `.env.prod` which override `.env.dev` where necessary:
 
 {{ .env.prod (example) }}
-```
+```bash
 # Overrides .env.dev defaults
 
 # build mode

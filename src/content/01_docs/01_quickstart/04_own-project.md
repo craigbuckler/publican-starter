@@ -13,20 +13,23 @@ Use the steps below to create your own Publican project from scratch rather than
 
 Create a new project directory:
 
-```
+{{ `terminal` }}
+```bash
 mkdir mysite
 cd mysite
 ```
 
 Initialize the project with whatever values you require:
 
-```
+{{ `terminal` }}
+```bash
 npm init
 ```
 
 Install Publican as a dependency:
 
-```
+{{ `terminal` }}
+```bash
 npm i publican
 ```
 
@@ -134,7 +137,8 @@ Optionally, you can edit `package.json` to set the default file type to ECMAscri
 
 Build the site to the `./build/` directory and watch for file changes:
 
-```sh
+{{ `terminal` }}
+```bash
 npm start
 ```
 
@@ -147,7 +151,8 @@ Press <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>C</kbd> to stop Publican running.
 
 Build the final site to the `./build/` directory with code minification:
 
-```sh
+{{ `terminal` }}
+```bash
 npm build
 ```
 

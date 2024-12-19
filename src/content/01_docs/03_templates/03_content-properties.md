@@ -236,6 +236,7 @@ Page `data` properties be added, modified, or removed from `data` objects using 
 
 1. Set [front matter values](--ROOT--docs/content/front-matter/#custom-front-matter):
 
+    {{ markdown }}
     ```md
     ---
     title: My Post
@@ -246,16 +247,27 @@ Page `data` properties be added, modified, or removed from `data` objects using 
 
 1. Run a [`processContent` function hook](--ROOT--docs/configuration/function-hooks/#processcontent) when content is initially loaded:
 
+    {{ `publican.config.js` example }}
     ```js
     publican.config.processContent.add(
       (filename, data) => data.author = 'Craig Buckler'
     );
     ```
 
-1. Run a [`processPreRender` function hooks](--ROOT--docs/configuration/function-hooks/#processprerender) just before rendering:
+1. Run a [`processPreRender` function hook](--ROOT--docs/configuration/function-hooks/#processprerender) just before post rendering:
 
+    {{ `publican.config.js` example }}
     ```js
     publican.config.processPreRender.add(
-      (filename, data) => data.author = 'Craig Buckler'
+      (data) => data.author = 'Craig Buckler'
+    );
+    ```
+
+1. Run a [`.processRenderStart` function hook](--ROOT--docs/configuration/function-hooks/#processrenderstart) to process all post data before rendering:
+
+    {{ `publican.config.js` example }}
+    ```js
+    publican.config.processRenderStart.add(
+      () => tacs.all.forEach(post => post.author = 'Craig Buckler')
     );
     ```

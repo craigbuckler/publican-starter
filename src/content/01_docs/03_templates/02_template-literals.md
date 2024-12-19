@@ -93,6 +93,7 @@ where `<filename>` is relative to the [template directory](--ROOT--docs/template
 
 The code `<nav-heading></nav-heading>` can be placed in any content or template file. Each page's nested content headings (`<h2>`{language=html} to `<h6>`{language=html}) are then rendered into the block:
 
+{{ example in-page menu }}
 ```html
 <nav-heading>
   <nav class="contents">
@@ -170,6 +171,7 @@ You can work around these issues in several ways.
 
 The elements `<aside>`, `<section>`, and `<article>` cannot be expressed in markdown unless you create a block of HTML content. Unfortunately, this means child markdown is not converted to HTML. For example:
 
+{{ markdown input }}
 ```md
 <aside>
 See also:
@@ -184,6 +186,7 @@ renders exactly as shown.
 
 The Starter template provides a [`processContent` hook](--ROOT--docs/configuration/function-hooks/#processcontent) which translates <code>$&#123;&#123; tag &#125;&#125;</code> &hellip; <code>$&#123;&#123; /tag &#125;&#125;</code>, where `tag` can be `aside`, `section`, or `article`. Using this instead of `<aside>` in the example above outputs:
 
+{{ HTML output }}
 ```html
 <aside>
 <p>See also:</p>

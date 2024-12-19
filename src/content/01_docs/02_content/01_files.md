@@ -122,7 +122,7 @@ By default, Publican orders files by the [front matter](--ROOT--docs/content/fro
 
 The starter site template orders files by filename. Directories and files have an initial number followed by an underscore, e.g.
 
-```
+```bash
 docs/
 
   01_quickstart/

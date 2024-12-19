@@ -2,6 +2,7 @@
 .pagecontents {
 
   display: block;
+  margin-block: 1em;
 
   summary {
 
@@ -37,7 +38,7 @@
     transform: rotate(-540deg);
   }
 
-  @media (width > 1500px) and (height > 900px) {
+  @media (width > 1500px) and (height > 1200px) {
 
     position: fixed;
     width: auto;

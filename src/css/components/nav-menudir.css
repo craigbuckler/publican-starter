@@ -68,7 +68,7 @@
     transform: rotate(-540deg);
   }
 
-  @media (width > 1500px) and (height > 900px) {
+  @media (width > 1500px) and (height > 1200px) {
 
     display: block;
     position: fixed;
