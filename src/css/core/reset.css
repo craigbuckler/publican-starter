@@ -29,10 +29,17 @@ body {
   touch-action: manipulation;
 }
 
-img, figure, picture, video, canvas, svg {
+img, figure, picture, video, canvas {
   display: block;
   max-inline-size: 100%;
   height: auto;
+}
+
+svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,11 +59,10 @@ a {
 
 *:focus-visible {
   text-decoration: none;
-  outline-color: color-mix(in srgb, currentColor 50%, transparent);
+  outline-color: color-mix(in srgb, var(--color-hint1) 50%, transparent);
   outline-style: solid;
   outline-offset: 0.2em;
   outline-width: 0.2rem;
-  overflow: hidden;
 }
 
 nav, summary {

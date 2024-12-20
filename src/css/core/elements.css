@@ -126,7 +126,7 @@ a.headlink {
 
 }
 
-main, .backnext, .related {
+main, .share, .backnext, .related {
 
   & > * {
     width: var(--main-width);

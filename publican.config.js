@@ -60,7 +60,7 @@ publican.config.processPostRender.add( fnHooks.postrenderMeta );
 tacs.config = tacs.config || {};
 tacs.config.isDev = isDev;
 tacs.config.language = process.env.SITE_LANGUAGE;
-tacs.config.domain = process.env.SITE_DOMAIN;
+tacs.config.domain = isDev ? `http://localhost:${ process.env.SERVE_PORT || '8000' }` : process.env.SITE_DOMAIN;
 tacs.config.title = process.env.SITE_TITLE;
 tacs.config.description = process.env.SITE_DESCRIPTION;
 tacs.config.author = process.env.SITE_AUTHOR;
