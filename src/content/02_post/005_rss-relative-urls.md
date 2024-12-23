@@ -5,7 +5,7 @@ description: Most static site generators use relative links in page content, but
 author: Craig Buckler
 tags: SSG, HTML, RSS, feed
 priority: 1.0
-date: 2024-12-01
+date: 2024-12-05
 hero: images/newspapers.jpg
 heroWidth: 1200
 heroHeight: 600

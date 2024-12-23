@@ -1,11 +1,12 @@
 ---
 title: What are Static Site Generators (SSGs)
 menu: false
+pinned: 1
 description: An overview of what Static Site Generators do, how they work, and how they benefit developers and users.
 author: Craig Buckler
 tags: SSG, HTML, overview
 priority: 1.0
-date: 2024-12-05
+date: 2024-12-01
 hero: images/question.jpg
 heroWidth: 1200
 heroHeight: 600
@@ -41,31 +42,4 @@ This *usually* occurs quickly, but there are downsides:
 
 An SSG is a compromise between using a hand-coded static site and a full CMS, while retaining the benefits of both. It extracts content from any sources -- files, CMS APIs, databases, etc. -- then renders them in a template to create HTML files. This build process can occur anywhere but the resulting files are copied to a live web server.
 
-
-### User benefits
-
-Users won't know they're viewing a static site but they may notice:
-
-1. Better performance. The site will load faster because it's pre-rendered and there's no rendering process.
-1. Less downtime. A static site is less likely to fail because there are fewer dependencies.
-
-
-### Site owner benefits
-
-Site owners and developers also gain from SSGs.
-
-1. Fewer constraints. You're not tied to a specific CMS and can implement whatever functionality you require.
-1. Improved resilience. It's easier to back up files and, if you're using a CMS, it need not be accessible from the internet.
-1. Better security. There is little software to *hack*. The worst someone could do is access your web server and change content -- but you could re-render it within minutes.
-1. Lower costs. Static sites are cheaper to host and scale.
-
-
-### The downsides
-
-SSGs are developer tools -- they're not directly usable by content authors. They take more time to set-up than deploying a basic WordPress site.
-
-Server-side functionality is more limited. Features such as user login, form submissions, search, and commenting require more consideration.
-
-The SSG build process can also take a little time. This may be concerning for clients who expect pages to update instantly.
-
-Fortunately, there are solutions to all these problems. There are also ways to use an SSG to generate static parts of your site -- articles, navigation, etc. -- while allowing **islands** of server-side or client-side runtime rendering.
+SSGs have [benefits for users and developers](--ROOT--post/ssg-good-parts/), but you may encounter [downsides](--ROOT--post/ssg-bad-parts/).

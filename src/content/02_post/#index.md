@@ -1,7 +1,7 @@
 ---
 title: Latest posts
 menu: Posts
-description: Recent blog posts.
+description: Index of recent blog posts.
 priority: 0.9
 ---
 

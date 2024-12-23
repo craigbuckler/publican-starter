@@ -26,15 +26,19 @@ publican.config.dirPages.template = process.env.TEMPLATE_LIST;
 publican.config.tagPages.template = process.env.TEMPLATE_TAG;
 
 // slug replacement strings - removes NN_ from slug
-publican.config.slugReplace.set(/\d{2,}_/g, '');
+publican.config.slugReplace.set(/\d+_/g, '');
 
 // default syntax language
 publican.config.markdownOptions.prism.defaultLanguage = 'bash';
 
-// pagination sizes
+// sorting and pagination
 publican.config.dirPages.size = 6;
 publican.config.dirPages.sortBy = 'filename';
-publican.config.dirPages.sortDir = 1;
+publican.config.dirPages.sortOrder = 1;
+publican.config.dirPages.dir.post = {
+  sortBy: 'date',
+  sortOrder: -1
+};
 publican.config.tagPages.size = 12;
 
 // pass-through files
@@ -82,9 +86,9 @@ publican.config.replace = new Map([
 ]);
 
 // utils
-publican.config.minify = !isDev;  // minify in production mode
-publican.config.watch = isDev;    // watch in development mode
-publican.config.logLevel = 2;     // output verbosity
+publican.config.minify.enabled = !isDev;  // minify in production mode
+publican.config.watch = isDev;            // watch in development mode
+publican.config.logLevel = 2;             // output verbosity
 
 // clear build directory
 await publican.clean();

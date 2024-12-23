@@ -16,20 +16,54 @@ A [configuration file](--ROOT--docs/configuration/file/) in the project root nam
 
 Publican [content](--ROOT--docs/content/files/) is contained in `src/content/`.
 
-It is primarily [markdown](--ROOT--docs/content/markdown/)(`.md`) files, but some HTML, XML, TXT, and other text files are available. Any content file can have [front matter](--ROOT--docs/content/front-matter/) values that define meta data such as titles, descriptions, dates, authors, tags, etc.
-
-HTML [templates](--ROOT--docs/templates/files/) are contained in `src/template/`. Content is slotted into these files during the build to create HTML pages.
+Most content is likely to be [markdown](--ROOT--docs/content/markdown/)(`.md`) files, but some HTML, XML, TXT, and other text files can be used. Any content file can have [front matter](--ROOT--docs/content/front-matter/) values that define meta data such as titles, descriptions, dates, authors, tags, etc.
 
 Media and other static files are contained in `src/media/`. These are [copied directly](--ROOT--docs/configuration/pass-through-files/) to the `build/` directory without modification.
 
 
+### Content directories
+
+Publican presumes directories of `src/content/` contain specific *types* of content, e.g.
+
+* `src/content/docs/` for documentation
+* `src/content/post/` for blogs
+* `src/content/about/` for person/organization information
+
+You can have sub-directories of any core parent directory, e.g. `src/content/docs/overview/`, `src/content/docs/overview/install/`, etc.
+
+Publican automatically generates paginated index pages for all core parent directories, e.g. the files (slug) at:
+
+* `docs/index.html` shows the first page of posts in `docs/`
+* `docs/1/index.html` shows the second page of posts in `docs/`
+* `docs/2/index.html` shows the third page of posts, and so on
+
+Publican can be [configured](--ROOT--docs/configuration/options/#directory-index-pages) to order and present directory index pages in any way.
+
+
+### Content tags
+
+Content front matter can specify [tags](--ROOT--docs/content/front-matter/#tags) -- key words associated with content, e.g.
+
+```md
+tags: HTML, CSS, JavaScript
+```
+
+Publican automatically generates paginated index pages for all tags, e.g. the files (slug) at:
+
+* `/tag/html/index.html` shows the first page of posts with the `HTML` tag
+* `/tag/html/1/index.html` shows the second page of posts with the `HTML` tag
+* `/tag/html/2/index.html` shows the third page of posts, and so on.
+
+Publican can be [configured](--ROOT--docs/configuration/options/#tag-index-pages) to order and present tag index pages in any way.
+
+
 ## Publican templates
 
-Publican [templates](--ROOT--docs/templates/files/) are contained in `src/content/`.
+Publican [templates](--ROOT--docs/templates/files/) are contained in `src/template/`. Content is slotted into templates during the build to create HTML pages and other text-based content (feeds, sitemaps, etc).
 
-Publican uses [jsTACS](https://www.npmjs.com/package/jstacs) as its templating engine. It parses standard JavaScript `${ expression }`{language=js} template literals, e.g. `<h1>${ data.title }</h1>`{language=js} slots a title into a template heading.
+Publican uses [jsTACS](https://www.npmjs.com/package/jstacs) as its templating engine. It parses standard JavaScript `${ expression }`{language=js} template literals. For example, `<h1>${ data.title }</h1>`{language=js} slots a title into a template heading.
 
-`!{ expression }` values are not evaluated and converted to `${ expression }` at the end of the build so they are present in the rendered files. You can create partially built templates and use them in Express.js or other frameworks at runtime.
+`!{ expression }` values are not evaluated at build time but are converted to `${ expressions }` at the end of the build so they are present in rendered files. You can use these as partially-built templates in Express.js or other frameworks at runtime.
 
 
 ## Publican configuration

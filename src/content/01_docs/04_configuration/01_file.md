@@ -21,7 +21,7 @@ const publican = new Publican();
 await publican.build();
 ```
 
-However, most sites will require more [options](--ROOT--docs/configuration/options/) set before the `.build()`{language=js} line.
+However, most sites will require more [options](--ROOT--docs/configuration/options/) set before `.build()`{language=js} is called.
 
 The script is executed from the project directory using:
 
@@ -34,13 +34,13 @@ node ./publican.config.js
 
 By default, Publican builds a production site where draft and future-dated posts are not rendered. Setting the environment variable `NODE_ENV` to `development` builds a development site where all content is rendered.
 
-You can set NODE_ENV on Linux and Mac OS:
+You can set `NODE_ENV` on Linux and Mac OS:
 
 ```bash
 NODE_ENV=development
 ```
 
-Windows Powershell:
+in Windows Powershell:
 
 ```bash
 $env:NODE_ENV="development"
@@ -52,7 +52,7 @@ or the Windows `cmd` prompt:
 set NODE_ENV=development
 ```
 
-You can also examine `NODE_ENV` in your `publican.config.js` configuration file to control options such as minification and live watch mode:
+You can also examine `NODE_ENV` in your `publican.config.js` configuration to control options such as minification and live watch mode:
 
 {{ `publican.config.js` }}
 ```js
@@ -66,7 +66,7 @@ const isDev = (process.env.NODE_ENV === 'development');
 console.log(`Building ${ isDev ? 'development' : 'production' } site`);
 
 // do not minify in development mode
-publican.config.minify = !isDev;
+publican.config.minify.enabled = !isDev;
 
 // file watch in development mode
 publican.config.watch = isDev;
@@ -78,7 +78,7 @@ await publican.build();
 
 ## Using `.env` files
 
-It's impractical to keep setting `NODE_ENV` and there may be other values you want to change. You could create a `.env.dev` file in the project root which contains defaults:
+It's impractical to keep setting `NODE_ENV` and there may be other values you want to change. Optionally, you can create a `.env.dev` file in the project root which defines defaults:
 
 {{ `.env.dev` example }}
 ```bash
@@ -96,7 +96,7 @@ BUILD_DIR=./build/
 BUILD_ROOT=/
 ```
 
-The values can be used in `publican.config.js` so the same configuration file can be used in multiple projects:
+The values can then be imported into `publican.config.js` so the same configuration file can be used across multiple projects with slightly different set-ups:
 
 {{ `publican.config.js` excerpt }}
 ```js
@@ -113,7 +113,7 @@ Node.js has built-in support for `.env` files. Run a development build with:
 node --env-file=.env.dev ./publican.config.js
 ```
 
-A `.env.prod` file can override development settings. In most cases, it will be a matter of changing `NODE_ENV`:
+An `.env.prod` file could override development settings. In most cases, it will be a matter of changing `NODE_ENV`:
 
 {{ `.prod.dev` example }}
 ```bash

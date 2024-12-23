@@ -1,11 +1,12 @@
 ---
 title: Why create another static site generator?
 menu: false
+pinned: 0.9
 description: Why does Publican exist when there are so many great SSGs for all systems and languages?
 author: Craig Buckler
 tags: SSG, HTML, JavaScript
 priority: 1.0
-date: 2024-12-02
+date: 2024-12-04
 hero: images/code.jpg
 heroWidth: 1200
 heroHeight: 600

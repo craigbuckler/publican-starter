@@ -1,0 +1,16 @@
+<aside class="pinned">
+
+  <h2>Popular posts</h2>
+
+  <p>The most popular posts include:</p>
+
+  <nav class="pagelist">
+    ${
+      tacs.dir.get('post')
+        .filter(p => p.pinned)
+        .sort((a, b) => b.pinned - a.pinned)
+        .map(p => tacs.fn.format.articleLink(p, 'h3') )
+    }
+    </nav>
+
+</aside>
