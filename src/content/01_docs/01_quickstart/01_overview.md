@@ -74,7 +74,7 @@ Publican is [configured](--ROOT--docs/configuration/file/) and launched by the `
 
 * The `.env.dev` and `.env.prod` (which can override `.env.dev` values) defines environment variables for **production** builds that can be deployed to a live server. The site contains minified live posts and assets.
 
-* [Additional functions](--ROOT--docs/configuration/custom-options/) used during render are defined in the `lib/` directory. These are generally used to format values and create navigation menus, breadcrumbs, etc.
+* [Additional functions](--ROOT--docs/configuration/template-functions/) used during render are defined in the `lib/` directory. These are generally used to format values and create navigation menus, breadcrumbs, etc.
 
 
 ## esbuild bundling

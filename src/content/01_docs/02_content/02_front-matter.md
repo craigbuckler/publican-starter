@@ -178,7 +178,7 @@ Template literals can cast strings to any type, e.g.
 <p>object.a: ${ JSON.parse( data.object ).a }</p>
 ```
 
-Alternatively, you could use a [`processContent` function hook](--ROOT--docs/configuration/function-hooks/#processcontent) to parse the front matter when it's loaded:
+Alternatively, you could use a [`processContent` function hook](--ROOT--docs/configuration/event-functions/#processcontent) to parse the front matter when it's loaded:
 
 {{ `publican.config.js` }}
 ```js

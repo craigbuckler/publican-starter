@@ -245,7 +245,7 @@ Page `data` properties be added, modified, or removed from `data` objects using 
     ---
     ```
 
-1. Run a [`processContent` function hook](--ROOT--docs/configuration/function-hooks/#processcontent) when content is initially loaded:
+1. Run a [`processContent` function hook](--ROOT--docs/configuration/event-functions/#processcontent) when content is initially loaded:
 
     {{ `publican.config.js` example }}
     ```js
@@ -254,7 +254,7 @@ Page `data` properties be added, modified, or removed from `data` objects using 
     );
     ```
 
-1. Run a [`processPreRender` function hook](--ROOT--docs/configuration/function-hooks/#processprerender) just before post rendering:
+1. Run a [`processPreRender` function hook](--ROOT--docs/configuration/event-functions/#processprerender) just before post rendering:
 
     {{ `publican.config.js` example }}
     ```js
@@ -263,7 +263,7 @@ Page `data` properties be added, modified, or removed from `data` objects using 
     );
     ```
 
-1. Run a [`.processRenderStart` function hook](--ROOT--docs/configuration/function-hooks/#processrenderstart) to process all post data before rendering:
+1. Run a [`.processRenderStart` function hook](--ROOT--docs/configuration/event-functions/#processrenderstart) to process all post data before rendering:
 
     {{ `publican.config.js` example }}
     ```js

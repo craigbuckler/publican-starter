@@ -118,7 +118,7 @@ The Starter template also provides web component code in `src/js/lib/nav-heading
 
 ### Template functions
 
-When expressions require more complex logic, you can [bind functions to the global `tacs` object](--ROOT--docs/configuration/custom-options/#custom-jstacs-functions) in your [configuration file](--ROOT--docs/configuration/file/). For example:
+When expressions require more complex logic, you can [bind functions to the global `tacs` object](--ROOT--docs/configuration/template-functions/#custom-jstacs-functions) in your [configuration file](--ROOT--docs/configuration/file/). For example:
 
 {{ `publican.config.js` }}
 ```js
@@ -162,7 +162,7 @@ You can work around these issues in several ways.
     <p>This ${ "HTML block" } is skipped by the markdown parser.</p>
     ```
 
-1. Simplify expressions using [custom jsTACS functions](--ROOT--docs/configuration/custom-options/#custom-jstacs-functions).
+1. Simplify expressions using [custom jsTACS functions](--ROOT--docs/configuration/template-functions/).
 
 1. Only use complex expressions in HTML content or template files. These are not processed by the markdown parser.
 
@@ -184,7 +184,7 @@ See also:
 
 renders exactly as shown.
 
-The Starter template provides a [`processContent` hook](--ROOT--docs/configuration/function-hooks/#processcontent) which translates <code>$&#123;&#123; tag &#125;&#125;</code> &hellip; <code>$&#123;&#123; /tag &#125;&#125;</code>, where `tag` can be `aside`, `section`, or `article`. Using this instead of `<aside>` in the example above outputs:
+The Starter template provides a [`processContent` hook](--ROOT--docs/configuration/event-functions/#processcontent) which translates <code>$&#123;&#123; tag &#125;&#125;</code> &hellip; <code>$&#123;&#123; /tag &#125;&#125;</code>, where `tag` can be `aside`, `section`, or `article`. Using this instead of `<aside>` in the example above outputs:
 
 {{ HTML output }}
 ```html
