@@ -4,7 +4,7 @@ menu: Content files
 description: How content is defined for a Publican static site.
 date: 2024-12-10
 priority: 0.9
-tags: content, front matter
+tags: content, front matter, directories
 ---
 
 Publican content files define the main content of a page. They should not normally define content such as page headers, footers, and navigation blocks which typically reside in [templates](--ROOT--docs/templates/files/).

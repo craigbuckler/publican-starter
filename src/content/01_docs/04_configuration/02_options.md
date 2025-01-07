@@ -272,7 +272,7 @@ publican.config.tagPages = {
   sortBy: 'date',             // sort by date order
   sortOrder: -1,              // from most to least recent
   template: 'default.html',   // using this template
-  menu: false,                // do not show a `tag` menu
+  menu: false,                // do not show tag on the menu
   index: 'monthly'            // index tag pages monthly
 };
 ```

@@ -4,7 +4,7 @@ menu: Overview
 description: An overview of the Publican starter template.
 date: 2024-12-10
 priority: 0.9
-tags: SSG, overview
+tags: SSG, overview, directories, pass through
 ---
 
 This project demonstrates Publican, a Node.js [static site generator](--ROOT--post/what-are-static-site-generators/). You can use it for code examples or as the basis of your own static site which can be hosted anywhere.
@@ -35,7 +35,7 @@ Publican automatically generates paginated index pages for all core parent direc
 
 * `docs/index.html` shows the first page of posts in `docs/`
 * `docs/1/index.html` shows the second page of posts in `docs/`
-* `docs/2/index.html` shows the third page of posts, and so on
+* `docs/2/index.html` shows the third page of posts, and so on.
 
 Publican can be [configured](--ROOT--docs/configuration/options/#directory-index-pages) to order and present directory index pages in any way.
 

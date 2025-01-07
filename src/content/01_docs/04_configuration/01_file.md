@@ -4,7 +4,7 @@ menu: Configuration file
 description: How to create and launch a Publican configuration file using options for development and production.
 date: 2024-12-20
 priority: 0.9
-tags: configuration
+tags: configuration, .env, npm
 ---
 
 To build a site, you must create a configuration file in the project root named `publican.config.js` (any name can be used). The simplest script creates a `Publican` object and executes its `.build()`{language=js} method to pull [content](--ROOT--docs/content/files/) into [templates](--ROOT--docs/template/files/) and create a site in the `build` directory:

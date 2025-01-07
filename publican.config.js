@@ -9,9 +9,6 @@ const
   publican = new Publican(),
   isDev = (process.env.NODE_ENV === 'development');
 
-// exports for other modules
-export { publican, tacs };
-
 console.log(`Building ${ isDev ? 'development' : 'production' } site`);
 
 // Publican defaults
