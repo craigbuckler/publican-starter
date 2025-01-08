@@ -74,19 +74,11 @@ Publican is [configured](--ROOT--docs/configuration/file/) and launched by the `
 
 * The `.env.dev` and `.env.prod` (which can override `.env.dev` values) defines environment variables for **production** builds that can be deployed to a live server. The site contains minified live posts and assets.
 
-* [Additional functions](--ROOT--docs/configuration/template-functions/) used during render are defined in the `lib/` directory. These are generally used to format values and create navigation menus, breadcrumbs, etc.
+* [Additional functions](--ROOT--docs/configuration/template-globals/) used during render are defined in the `lib/` directory. These are generally used to format values and create navigation menus, breadcrumbs, etc.
 
 
 ## esbuild bundling
 
-[esbuild](https://esbuild.github.io/) is used by this project to bundle CSS, bundle JavaScript, and run a development web server with live CSS reloading.
+Publican primarily constructs HTML files and static assets. It can copy CSS and JavaScript files, but a dedicated bundler offers more sophisticated options such as source maps, tree-shaking, and platform-targeting.
 
-* CSS files are contained in `src/css/`. `main.css` is the entry file which loads others. The bundled file is built to `build/css/main.css`.
-
-* JavaScript files are contained in `src/js/`. `main.js` is the entry file which loads others. The bundled file is built to `build/js/main.js`.
-
-esbuild is [configured](http://localhost:8222/docs/esbuild/configuration/) and launched by the same `publican.config.js` file. It also uses environment variables defined in `.env.dev` and `.env.prod`, such as `BROWSER_TARGET` to sets minimum browser targets.
-
-Development builds are not minified, retain `console` and `debugger` statements, and provide source maps.
-
-Note that CSS and JavaScript are used as progressive enhancements and the starter site will work without them. esbuild is optional and not necessary for Publican projects. You can use any build system or development server, such as [Browsersync](https://browsersync.io/) or [small-static-server](https://www.npmjs.com/package/small-static-server).
+The Stater project uses an [esbuild configuration](--ROOT--docs/esbuild/configuration/) to bundle CSS and JavaScript files during development and production builds.

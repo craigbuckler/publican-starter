@@ -69,6 +69,19 @@ nav, summary {
   user-select: none;
 }
 
+details {
+  overflow: clip;
+}
+
+details[open]::details-content {
+  height: auto;
+}
+
+details::details-content {
+  height: 0;
+  transition: content-visibility 0.3s allow-discrete, height 0.3s;
+}
+
 summary {
   cursor: pointer;
 }

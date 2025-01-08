@@ -36,12 +36,15 @@
 
     summary, a, strong {
       line-height: 2;
-      padding-inline: 1.5rem;
+      padding-inline: 2rem;
     }
 
     summary {
       display: block;
-      padding-inline-start: 1em;
+
+      &, & > a {
+        padding-inline-start: 0;
+      }
     }
   }
 
@@ -52,9 +55,13 @@
 
     summary, a, strong {
       line-height: 1.2;
-      padding-inline: 3rem;
+      padding-inline: 3rem 2rem;
     }
 
+  }
+
+  details[name]::details-content {
+    transition: none;
   }
 
   summary::marker {
@@ -67,7 +74,7 @@
     text-align: center;
     vertical-align: baseline;
     content: '\25b6';
-    width: 1.5rem;
+    width: 2rem;
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
   }

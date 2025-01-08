@@ -147,25 +147,3 @@ publican.config.processPostRender.add(
   }
 );
 ```
-
-
-## `processRenderComplete`
-
-A function hook called once when all output has been rendered and at least one file has changed. The function is passed an array of objects with the following properties:
-
-* `slug` (string): the output file name relative to the build directory
-* `content` (string): the final rendered content.
-
-The array and any property can be changed because it's passed by reference. Return values are ignored.
-
-```js
-// add the slug as a comment to the end of HTML files
-publican.config.processRenderComplete.add(
-  (write) => {
-    console.log(`Writing ${ write.length } files`);
-    write.forEach(w => {
-      if (w.slug.endsWith('.html')) w.content += `<!-- ${ w.slug } -->`;
-    });
-  }
-);
-```

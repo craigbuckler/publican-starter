@@ -118,7 +118,7 @@ The Starter template also provides web component code in `src/js/lib/nav-heading
 
 ### Template functions
 
-When expressions require more complex logic, you can [bind functions to the global `tacs` object](--ROOT--docs/configuration/template-functions/#custom-jstacs-functions) in your [configuration file](--ROOT--docs/configuration/file/). For example:
+When expressions require more complex logic, you can [bind functions to the global `tacs` object](--ROOT--docs/configuration/template-globals/#custom-jstacs-functions) in your [configuration file](--ROOT--docs/configuration/file/). For example:
 
 {{ `publican.config.js` }}
 ```js
@@ -162,7 +162,7 @@ You can work around these issues in several ways.
     <p>This ${ "HTML block" } is skipped by the markdown parser.</p>
     ```
 
-1. Simplify expressions using [custom jsTACS functions](--ROOT--docs/configuration/template-functions/).
+1. Simplify expressions using [custom jsTACS functions](--ROOT--docs/configuration/template-globals/).
 
 1. Only use complex expressions in HTML content or template files. These are not processed by the markdown parser.
 

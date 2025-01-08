@@ -338,8 +338,14 @@ By default, Publican waits at least 300 milliseconds to ensure no further files 
 publican.config.watchDebounce = 1000;
 ```
 
+A shorter `watchDebounce` can negatively affect performance because multiple rebuilds are triggered for multiple file changes.
+
+Press <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>C</kbd> to stop Publican running.
+
 {aside}
-A shorter `watchDebounce` may affect rebuild performance because it's called multiple times for each file change.
+### Monitored files
+
+Publican only monitors content and template files. Changing the [configuration file](--ROOT--docs/configuration/file/) or its imported modules will not trigger a rebuild -- you must manually stop and restart Publican.
 {/aside}
 
 

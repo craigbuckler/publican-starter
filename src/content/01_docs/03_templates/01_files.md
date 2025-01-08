@@ -110,8 +110,8 @@ The `filename` is relative to the [template location](#template-file-location). 
 {{ `publican.config.js` }}
 ```js
 publican.addTemplate(
-  'mytemplate.html', `
-<!doctype html>
+  'mytemplate.html',
+`<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8">
