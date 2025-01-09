@@ -41,6 +41,19 @@ li {
   }
 }
 
+details {
+  overflow: clip;
+}
+
+details[open]::details-content {
+  height: auto;
+}
+
+details::details-content {
+  height: 0;
+  transition: content-visibility 0.3s allow-discrete, height 0.3s ease-in-out;
+}
+
 main aside, blockquote {
   padding-block: 0.75em;
   padding-inline: 1em;

@@ -153,7 +153,7 @@ Build the final site to the `./build/` directory with code minification:
 
 {{ `terminal` }}
 ```bash
-npm build
+npm run build
 ```
 
 These files can be deployed to any web server.
