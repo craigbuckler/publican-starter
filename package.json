@@ -31,6 +31,8 @@
   },
   "homepage": "https://github.com/craigbuckler/publican-starter#readme",
   "dependencies": {
-    "esbuild": "0.25.0"
+    "esbuild": "0.25.2",
+    "markdown-it-attrs": "4.3.1",
+    "markdown-it-footnote": "4.0.0"
   }
 }

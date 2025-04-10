@@ -60,8 +60,8 @@ This replaces:
 * replaces the `style` attribute of right-aligned table cells with ` class="right"`, and
 * replaces the `style` attribute of center-aligned table cells with ` class="center"`.
 
-{aside}
+::: aside
 ## Replacement exceptions
 
 This page uses a Unicode character that looks like a `-` minus to ensure explicit names like `−−ROOT−−` are not replaced by Publican!
-{/aside}
+::: /aside

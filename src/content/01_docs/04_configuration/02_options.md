@@ -209,9 +209,9 @@ publican.config.headingAnchor = {
 };
 ```
 
-{aside}
+::: aside
 Ensure your heading are nested correctly. For example, following an `<h2>`{language=html}, you could have another `<h2>`{language=html} or an `<h3>`{language=html}, but not an `<h4>`{language=html}.
-{/aside}
+::: /aside
 
 
 ## Directory index pages
@@ -342,11 +342,11 @@ A shorter `watchDebounce` can negatively affect performance because multiple reb
 
 Press <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>C</kbd> to stop Publican running.
 
-{aside}
+::: aside
 ### Monitored files
 
 Publican only monitors content and template files. Changing the [configuration file](--ROOT--docs/configuration/file/) or its imported modules will not trigger a rebuild -- you must manually stop and restart Publican.
-{/aside}
+::: /aside
 
 
 ## Logging verbosity

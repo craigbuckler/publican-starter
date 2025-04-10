@@ -3,6 +3,10 @@ import { Publican, tacs } from 'publican';
 import * as fnNav from './lib/nav.js';
 import * as fnFormat from './lib/format.js';
 import * as fnHooks from './lib/hooks.js';
+
+import markdownItAttrs from 'markdown-it-attrs';
+import markdownItFootnote from 'markdown-it-footnote';
+
 import esbuild from 'esbuild';
 
 const
@@ -28,6 +32,16 @@ publican.config.slugReplace.set(/\d+_/g, '');
 // default syntax language
 publican.config.markdownOptions.prism.defaultLanguage = 'bash';
 
+// markdown-it plugin: attributes
+publican.config.markdownOptions.use.add(
+  [ markdownItAttrs, { leftDelimiter: '{', rightDelimiter: '}' } ]
+);
+
+// markdown-it plugin:
+publican.config.markdownOptions.use.add(
+  [ markdownItFootnote ]
+);
+
 // sorting and pagination
 publican.config.dirPages.size = 6;
 publican.config.dirPages.sortBy = 'filename';
@@ -46,7 +60,10 @@ publican.config.passThrough.add({ from: './src/media/images', to: './images/' })
 publican.config.processContent.add( fnHooks.contentFilename );
 
 // processContent hook: replace { aside|section|article } tags
-publican.config.processContent.add( fnHooks.contentSections );
+// publican.config.processContent.add( fnHooks.contentSections );
+
+// processContent hook: replace ::: tags
+publican.config.processContent.add( fnHooks.htmlBlocks );
 
 // processRenderStart hook: create tacs.tagScore Map
 publican.config.processRenderStart.add( fnHooks.renderstartTagScore );

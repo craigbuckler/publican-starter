@@ -9,11 +9,11 @@ tags: configuration, events, hooks, functions, plugins
 
 Functions can be defined in your [configuration](--ROOT--docs/configuration/file) or plugin files that are called when specific events occur at build time. The functions can inspect, add, alter, or remove data.
 
-{aside}
+::: aside
 ## Publican plugins
 
 Publican has no specific plugin options or methods, but function hooks provide a way to create reusable modules that can be used across projects.
-{/aside}
+::: /aside
 
 
 ## Synchronous functions only
