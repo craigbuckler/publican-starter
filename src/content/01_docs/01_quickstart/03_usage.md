@@ -3,6 +3,7 @@ title: Usage
 menu: Usage
 description: How to use the Publican starter template on your own system.
 date: 2024-12-10
+modified: 2025-06-10
 priority: 0.9
 tags: build
 ---
@@ -23,7 +24,7 @@ Load the development site in a browser at https://localhost:8222/
 
 The site content, CSS, and JavaScript files are updated when any are changed. Note:
 
-* CSS changes live reload -- *you do not need to hit refresh*.
+* CSS changes hot reload -- *you do not need to hit refresh*.
 * HTML and JavaScript changes require a manual refresh.
 * Changes to `publican.config.js` or static files only occur when the process is stopped and restarted.
 

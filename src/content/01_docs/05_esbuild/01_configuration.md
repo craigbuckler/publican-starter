@@ -15,7 +15,7 @@ The Starter template uses [esbuild](https://esbuild.github.io/) to:
 * bundle JavaScript, and
 * run a development web server with live CSS reloading.
 
-esbuild is optional and not necessary for Publican projects. You can use any build system or development server, such as [Browsersync](https://browsersync.io/) or [small-static-server](https://www.npmjs.com/package/small-static-server).
+esbuild is optional and not necessary for Publican projects. You can use any build system or development server, such as [Browsersync](https://browsersync.io/) or [LiveLocalhost](https://www.npmjs.com/package/livelocalhost).
 
 
 ## Bundled files
@@ -115,7 +115,7 @@ if (__ISDEV__) {
 }
 ```
 
-The code in `src/js/dev/css-reload.js` uses this to enable CSS live reloading. The production build removes the code when it encounters `if (false) { ... }`.
+The code in `src/js/dev/css-reload.js` uses this to enable CSS hot reloading. The production build removes the code when it encounters `if (false) { ... }`.
 
 
 ### Watch mode

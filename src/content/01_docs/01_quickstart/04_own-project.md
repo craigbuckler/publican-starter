@@ -142,7 +142,12 @@ Build the site to the `./build/` directory and watch for file changes:
 npm start
 ```
 
-You can examine the resulting files, open them from the file system, or use a local development server such as [small-static-server](https://www.npmjs.com/package/small-static-server).
+You can examine the resulting files, open them from the file system, or use a local development server such as [LiveLocalhost](https://www.npmjs.com/package/livelocalhost) in another terminal window:
+
+{{ `terminal` }}
+```bash
+npx livelocalhost -d ./build/
+```
 
 Press <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>C</kbd> to stop Publican running.
 

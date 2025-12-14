@@ -1,8 +1,10 @@
-// live reload CSS in development mode
+// hot reload CSS in development mode
 if (__ISDEV__) {
 
   // esbuild server-sent event
-  new EventSource('/esbuild').addEventListener('change', e => {
+  new EventSource('/livereload').addEventListener('message', e => {
+
+    console.log(e.data);
 
     const { added, removed, updated } = JSON.parse(e.data);
 

@@ -2,4 +2,10 @@
 
 A starter site using the Publican static site generator.
 
-Instructions coming soon.
+Instructions coming soon?
+
+Link other modules before running:
+
+```bash
+npm link ../publican/ ../livelocalhost/ ../staticsearch/
+```

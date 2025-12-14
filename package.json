@@ -5,9 +5,9 @@
   "type": "module",
   "main": "publican.config.js",
   "scripts": {
-    "build": "node --no-warnings --env-file=.env.dev --env-file=.env.prod ./publican.config.js",
-    "debug": "node --inspect=0.0.0.0:9229 --no-warnings --env-file=.env.dev ./publican.config.js",
-    "start": "node --no-warnings --env-file=.env.dev ./publican.config.js"
+    "build": "node --env-file=.env.dev --env-file=.env.prod ./publican.config.js",
+    "debug": "node --inspect=0.0.0.0:9229 --env-file=.env.dev ./publican.config.js",
+    "start": "node --env-file=.env.dev ./publican.config.js"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/craigbuckler/publican-starter#readme",
   "dependencies": {
-    "esbuild": "0.25.2",
+    "esbuild": "0.27.1",
     "markdown-it-attrs": "4.3.1",
     "markdown-it-footnote": "4.0.0"
   }

@@ -10,9 +10,11 @@ tags: content, front matter, directories
 Publican content files define the main content of a page. They should not normally define content such as page headers, footers, and navigation blocks which typically reside in [templates](--ROOT--docs/templates/files/).
 
 ::: aside
+
 ## Content rules
 
 Publican does not enforce content/template rules. You can combine files as you like.
+
 ::: /aside
 
 

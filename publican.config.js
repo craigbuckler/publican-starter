@@ -1,5 +1,8 @@
 // Publican configuration
 import { Publican, tacs } from 'publican';
+import { staticsearch } from 'staticsearch';
+import { livelocalhost } from 'livelocalhost';
+
 import * as fnNav from './lib/nav.js';
 import * as fnFormat from './lib/format.js';
 import * as fnHooks from './lib/hooks.js';
@@ -8,6 +11,33 @@ import markdownItAttrs from 'markdown-it-attrs';
 import markdownItFootnote from 'markdown-it-footnote';
 
 import esbuild from 'esbuild';
+import { readFile } from 'fs/promises';
+
+
+// esbuild string replacer plugin
+const stringReplacer = ({
+  filter = /\.js$/,
+  loader = 'js',
+  encoding = 'utf-8',
+  patterns = [],
+} = {}) => ({
+  name: 'stringReplacer',
+  setup(build) {
+
+    build.onLoad({ filter }, async (args) => {
+
+      const { path } = args;
+      let contents = (await readFile(path, encoding)).toString();
+      for (const pattern of patterns) {
+        contents = contents.replace(pattern.search, pattern.replace);
+      }
+      return { contents, loader };
+
+    });
+
+  },
+});
+
 
 const
   publican = new Publican(),
@@ -20,6 +50,8 @@ publican.config.dir.content = process.env.CONTENT_DIR;
 publican.config.dir.template = process.env.TEMPLATE_DIR;
 publican.config.dir.build = process.env.BUILD_DIR;
 publican.config.root = process.env.BUILD_ROOT;
+
+publican.config.indexFilename = 'index.html';
 
 // default HTML templates
 publican.config.defaultHTMLTemplate = process.env.TEMPLATE_DEFAULT;
@@ -74,6 +106,13 @@ publican.config.processPreRender.add( fnHooks.prerenderRelated );
 // processPostRender hook: add <meta> tags
 publican.config.processPostRender.add( fnHooks.postrenderMeta );
 
+// processRenderEnd hook: get changes
+// publican.config.processRenderEnd.add( written => {
+//   console.log('_________________________');
+//   console.log('changed:');
+//   console.log(written.map(w => w.slug).join('\n'));
+// } );
+
 // jsTACs rendering defaults
 tacs.config = tacs.config || {};
 tacs.config.isDev = isDev;
@@ -110,6 +149,10 @@ await publican.clean();
 // build site
 await publican.build();
 
+// run search indexer
+staticsearch.stopWords = 'publican';
+await staticsearch.index();
+
 
 // ________________________________________________________
 // esbuild configuration for CSS, JavaScript, and local server
@@ -133,6 +176,17 @@ const buildCSS = await esbuild.context({
     '.jpg': 'file',
     '.svg': 'dataurl'
   },
+  plugins: [
+
+    stringReplacer({
+      filter: /\.css$/,
+      loader: 'css',
+      patterns: [
+        { search: /__ISDEV__/g, replace: isDev ? '#f00' : '#090' }
+      ]
+    })
+
+  ],
   logLevel,
   minify,
   sourcemap,
@@ -148,9 +202,18 @@ const buildJS = await esbuild.context({
   bundle: true,
   target,
   external: [],
-  define: {
-    __ISDEV__: JSON.stringify(isDev)
-  },
+  // define: {
+  //   __ISDEV__: JSON.stringify(isDev)
+  // },
+  plugins: [
+
+    stringReplacer({
+      patterns: [
+        { search: /__ISDEV__/g, replace: isDev ? 'true' : 'false' }
+      ]
+    })
+
+  ],
   drop: isDev ? [] : ['debugger', 'console'],
   logLevel,
   minify,
@@ -166,10 +229,17 @@ if (publican.config.watch) {
   await buildJS.watch();
 
   // development server
-  await buildCSS.serve({
-    servedir: process.env.BUILD_DIR,
-    port: parseInt(process.env.SERVE_PORT) || 8000
-  });
+  // await buildCSS.serve({
+  //   servedir: process.env.BUILD_DIR,
+  //   port: parseInt(process.env.SERVE_PORT) || 8000
+  // });
+
+  // livelocalhost.serveport = parseInt(process.env.SERVE_PORT) || 8000;
+  // livelocalhost.servedir = process.env.BUILD_DIR;
+  // livelocalhost.reloadservice = '/myservice/reload';
+  // livelocalhost.hotloadJS = true;
+  livelocalhost.accessLog = false;
+  livelocalhost.start();
 
 }
 else {
